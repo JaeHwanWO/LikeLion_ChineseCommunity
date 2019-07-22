@@ -1,0 +1,12 @@
+<html>
+
+{% for posting in Postings.all %}
+<h1> {{posting.title}} <h1>
+<p> 작성자: {{posting.nickName}} </p>
+<p> 작성일 : {{posting.pubDate}} </p>
+<img src = "{{posting.image.url}}" />
+<p> {{posting.body}} </p>
+<p> ================ </p>
+{% endfor %}
+
+</html>

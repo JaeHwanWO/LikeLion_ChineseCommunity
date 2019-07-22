@@ -5,7 +5,7 @@ class Posting(models.Model):
     title = models.CharField(max_length = 200)
     nickName = models.CharField(max_length = 20)
     pubDate = models.DateTimeField('date published')
-    image = models.ImageField()
+    image = models.ImageField(upload_to="photos/", null=True, blank=True)
     body = models.TextField()
     isNotice = models.BooleanField()
     #uuid = models.UUIDField()

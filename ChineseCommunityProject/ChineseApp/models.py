@@ -3,11 +3,14 @@ from django.db import models
 # Create your models here.
 class Posting(models.Model):
     title = models.CharField(max_length = 200)
-    pubDate = models.DateTimeField('date published')
-    body = models.TextField()
     nickName = models.CharField(max_length = 20)
-    isNotice = models.BooleanField()
+    pubDate = models.DateTimeField('date published')
     image = models.ImageField()
+    body = models.TextField()
+    isNotice = models.BooleanField()
     #uuid = models.UUIDField()
+
+    def __str__(self):
+        return self.title
 
     

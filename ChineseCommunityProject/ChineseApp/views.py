@@ -12,8 +12,11 @@ def home(request):
 def create(request):
     posting = Posting()
     posting.title = request.GET['title']
-    posting.body = request.GET['body']
     posting.pubDate = timezone.datetime.now()
+    posting.body = request.GET['body']
+   # posting.nickName = request.GET['nickName']
+   # posting.isNotice = request.GET['isNotice']
+   # posting.image = request.GET['image']
     posting.save()
     postings = Posting.objects
-    return render(request, 'newPost.html', {'postings': postings})
+    return redirect('/')

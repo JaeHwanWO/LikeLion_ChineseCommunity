@@ -1,6 +1,13 @@
+{% block content %}
+{% load staticfiles %}
 <html>
-<header><title>This is title</title></header>
-
-<h1> yallo </h1>
-<button href= "{%url 'register'%}"> 가입하러 가기 </button>
+<head>This is title</head>
+<br> <br>
+<body>
+    <img src="{% static 'checked.png' %}", height = 100>
+    <h1> yallo </h1>
+    {% comment %} <button href= "{%url 'register'%}"> 가입하러 가기 </button> {% endcomment %}
+    <button href= "{%url 'create'%}"> 새 글 쓰기 </button>
+{% endblock %}
+</body>
 </html>

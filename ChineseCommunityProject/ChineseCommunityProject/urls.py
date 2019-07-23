@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', ChineseApp.views.func, name='main'),
     path('home/', ChineseApp.views.home, name='home'),
-    path('create/', ChineseApp.views.create, name='newPost'),
+    path('create/', ChineseApp.views.create, name='create'),
 ]

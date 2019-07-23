@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 import ChineseApp.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,3 +26,5 @@ urlpatterns = [
     path('home/', ChineseApp.views.home, name='home'),
     path('create/', ChineseApp.views.create, name='create'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

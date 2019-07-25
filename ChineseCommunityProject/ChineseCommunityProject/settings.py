@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ChineseApp.apps.ChineseappConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [

@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 import ChineseApp.views
+import accounts.views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,6 +26,11 @@ urlpatterns = [
     path('', ChineseApp.views.func, name='main'),
     path('home/', ChineseApp.views.home, name='home'),
     path('create/', ChineseApp.views.create, name='create'),
+    path('new/', ChineseApp.views.new, name='new'),
+    path('posting/<int:posting_id>/', ChineseApp.views.detail, name='detail'),
+    path('login/', accounts.views.login, name='login'),
+    path('signup/', accounts.views.signup, name='signup'),
+    path('logout/', accounts.views.logout, name='logout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

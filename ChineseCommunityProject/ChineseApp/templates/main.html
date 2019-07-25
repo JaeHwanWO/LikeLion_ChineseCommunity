@@ -1,13 +1,31 @@
 {% block content %}
 {% load staticfiles %}
 <html>
-<head>This is title</head>
+<head>Chinese Community Project</head>
 <br> <br>
 <body>
     <img src="{% static 'checked.png' %}", height = 100>
     <h1> yallo </h1>
-    {% comment %} <button href= "{%url 'register'%}"> 가입하러 가기 </button> {% endcomment %}
-    <button href= "{%url 'create'%}"> 새 글 쓰기 </button>
+    <br>
+    <a href= "{%url 'home'%}"> 이전 포스팅 구경하기 </a>
+    <br>
+    <a href= "{%url 'new'%}"> 새 글 쓰기 </a>
+    <br>
+    {% if user.is_authenticated %}
+    <form id="logout" method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Logout" />
+    </form>
+
+    환영합니다. {{ user.username }} 님!
+
+    {% else %}
+    <a href="{% url 'login' %} ">로그인</a>
+    <br>
+    <a href="{% url 'signup' %} ">회원가입</a> 
+    <br>
+    {% endif %}
+
 {% endblock %}
 </body>
 </html>

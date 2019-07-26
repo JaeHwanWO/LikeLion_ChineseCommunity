@@ -34,3 +34,13 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+# API 2개
+# 1. POST /users/signup : 회원가입 후 인증메일 전송
+# 2. GET /users/activate : 인증 메일 클릭 시 해당 아이디를 활성화
+urls.py에 path 추가해준다.
+path('signup', views.SignUp.as_view(), name='signup')
+path('activate/<str:uidb64>/<str:token>', views.UserActivate.as_view(), name='activate')
+
+1. 회원가입 후 이메일 전송
+views.py에 class 만든다.

@@ -31,3 +31,14 @@ def logout(request):
         auth.logout(request)
         return redirect('main')
     return render(request, 'main.html')
+
+'''
+class SignUp(APIView):
+    def post(self, request):
+        # 사용자 데이터 생상
+        serializer = UserSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
+'''
